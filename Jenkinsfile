@@ -12,7 +12,7 @@ pipeline {
         }
         stage('Test') {
             steps {
-              sleep 5
+                sleep 5
                 echo 'Testing..'
                 sh "./jenkins/test.sh"
             }
