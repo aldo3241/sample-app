@@ -7,7 +7,7 @@ pipeline {
                 sh "docker stop samplerunning"
                 sh "docker rm samplerunning"
                 sh "docker build -t samplebuild ."
-                sh "docker -t -d -p 5050:5050 --name samplerunning samplebuild"
+                sh "docker run -t -d -p 5050:5050 --name samplerunning samplebuild"
             }
         }
         stage('Test') {
