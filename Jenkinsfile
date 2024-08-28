@@ -20,6 +20,9 @@ pipeline {
         stage('Deploy') {
             steps {
                 echo 'Deploying....'
+                input message: "Deploy complete do you want to stop it now"
+                sh "docker stop samplerunning"
+                sh "docker rm samplerunning"
             }
         }
     }
