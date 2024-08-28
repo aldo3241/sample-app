@@ -20,7 +20,7 @@ pipeline {
         stage('Deploy') {
             steps {
                 echo 'Deploying....'
-                input message: "Deploy complete do you want to stop it now go to http://localhost:5050"
+                input message: "Deploy complete do you want to stop it now go to {http://localhost:5050}"
                 sh "docker stop samplerunning"
             }
         }
