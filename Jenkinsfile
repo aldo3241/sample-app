@@ -1,15 +1,7 @@
 pipeline {
   agent any
     stages {
-        stage('Build') {
-            steps {
-                echo 'Building..'
-                sh "docker stop samplerunning"
-                sh "docker rm samplerunning"
-                sh "docker build -t simplebuild ."
-                sh "docker run -t -d -p 5050:5050 --name simplerunning simplebuild"
-            }
-        }
+      
         stage('Test') {
             steps {
                 sleep 5
