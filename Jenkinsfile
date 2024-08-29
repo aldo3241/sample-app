@@ -4,10 +4,10 @@ pipeline {
         stage('Build') {
             steps {
                 echo 'Building..'
-                sh "docker stop samplerunning"
-                sh "docker rm samplerunning"
-                sh "docker build -t samplebuild ."
-                sh "docker run -t -d -p 5050:5050 --name samplerunning samplebuild"
+                sh "docker stop simplerunning"
+                sh "docker rm simplerunning"
+                sh "docker build -t simplebuild ."
+                sh "docker run -t -d -p 5050:5050 --name simplerunning simplebuild"
             }
         }
         stage('Test') {
@@ -21,7 +21,7 @@ pipeline {
             steps {
                 echo 'Deploying....'
                 input message: "Deploy complete do you want to stop it now go to {http://localhost:5050}"
-                sh "docker stop samplerunning"
+                sh "docker stop simplerunning"
             }
         }
     }
