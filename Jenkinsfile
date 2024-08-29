@@ -3,6 +3,7 @@ pipeline {
     stages {
         stage('build') {
             steps{
+                sh "docker ps -a"
                 sh "docker container stop simplerunning"
                 sh "docker rm simplerunning"
                 sh "./jenkins/build.sh"
