@@ -4,8 +4,8 @@ pipeline {
         stage('Build') {
             steps {
                 echo 'Building..'
-                sh "docker stop simplerunning"
-                sh "docker rm simplerunning"
+                sh "docker stop samplerunning"
+                sh "docker rm samplerunning"
                 sh "docker build -t simplebuild ."
                 sh "docker run -t -d -p 5050:5050 --name simplerunning simplebuild"
             }
