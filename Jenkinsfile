@@ -1,7 +1,14 @@
 pipeline {
   agent any
     stages {
-      
+        stage('build') {
+            steps{
+                sh "docker stop simplerunning"
+                sh "docker rm simplerunning"
+                sh "./jenkins/build.sh"
+            }
+        }
+
         stage('Test') {
             steps {
                 sleep 5
